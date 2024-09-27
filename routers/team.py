@@ -12,10 +12,13 @@ from schemas.team import Team
 team_router = APIRouter()
 
 
+#obtener todos los equipos.
 @team_router.get('/teams', tags=['teams'], response_model=List[Team], status_code=200)
 def get_teams() -> JSONResponse:
+    #conectar db
     db = Session()
     result = TeamService(db).get_teams()
+    #jsonable_encoder: convierte los objetos de Python a un formato compatible con JSON.
     return JSONResponse(status_code=200, content=jsonable_encoder(result))
 
 

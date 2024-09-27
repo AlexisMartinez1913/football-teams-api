@@ -1,7 +1,7 @@
 from models.team import Team as TeamModel
 from schemas.team import Team
 
-
+#lógica para manipular los datos del equipo de fútbol.
 class TeamService:
 
     def __init__(self, db):
